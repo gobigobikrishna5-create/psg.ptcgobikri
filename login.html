@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login Page</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #e03030);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .login-container {
+    background-color: rgba(255,255,255,0.9);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    animation: popUp 0.6s ease-out;
+    width: 320px;
+  }
+  h2 {
+    text-align: center;
+    color: #333;
+    animation: fadeInDown 0.8s ease;
+    margin-bottom: 1rem;
+  }
+  input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 0.95rem;
+  }
+  input[type="text"]:focus, input[type="password"]:focus, select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 10px rgba(99,102,241,0.3);
+    outline: none;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, transform 0.2s;
+  }
+  button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    transition: left 0.4s;
+  }
+  button:hover::after {
+    left: 0;
+  }
+  button:hover {
+    background-color: #5b63e6;
+    transform: translateY(-2px);
+  }
+  .error {
+    color: #ec4899;
+    margin-top: 8px;
+    text-align: center;
+    animation: shake 0.3s;
+  }
+
+  /* additional styles for new button */
+  .extra-section {
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeInUp 0.8s ease;
+  }
+
+  .extra-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #ec4899;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .extra-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(236,72,153,0.4);
+  }
+
+  @keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes gradientShift {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  @keyframes popUp {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  @keyframes fadeInDown {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes shake {
+    0%,100% {transform: translateX(0);}
+    20%,60% {transform: translateX(-5px);}
+    40%,80% {transform: translateX(5px);}
+  }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <h2>Login</h2>
+  <form id="loginForm">
+    <label for="role">Role:</label>
+    <select id="role" required>
+      <option value="admin">Admin</option>
+      <option value="customer">Customer</option>
+    </select>
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter username" required />
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password" required />
+    <button type="submit">Login</button>
+    <div class="error" id="errorMsg"></div>
+  </form>
+  
+
+<script>
+  // Hardcoded credentials for admin and customer
+  const credentials = {
+    admin: { username: "GOBI", password: "KRISHNA" },
+    customer: { username: "KMS", password: "MUHILAN" }
+  };
+
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent form submission
+
+    const role = document.getElementById('role').value;
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    const errorMsg = document.getElementById('errorMsg');
+
+    if (
+      username === credentials[role].username &&
+      password === credentials[role].password
+    ) {
+      // Save role info in local storage (optional)
+      localStorage.setItem('role', role);
+      // Redirect based on role
+      if (role === 'admin') {
+        window.location.href = 'page2.html';
+      } else {
+        window.location.href = 'page3.html';
+      }
+    } else {
+      errorMsg.textContent = 'Invalid credentials!';
+    }
+  });
+</script>
+</body>
+</html>

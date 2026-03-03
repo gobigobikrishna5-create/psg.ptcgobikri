@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSG Polytechnic Official Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </button>
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>PSG Polytechnic</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container fade-in">
+        <div class="page-content">
+            <div class="content-box">
+                <h1 class="page-title">
+                    <i class="fas fa-globe"></i>
+                    PSG Polytechnic Official Website
+                </h1>
+                <p class="page-description">
+                    Visit the official PSG Polytechnic website to learn more about our institution, programs, and opportunities.
+                </p>
+
+                <div class="link-section">
+                    <p class="link-intro">Click the button below to visit the official website:</p>
+                    <a href="https://www.bing.com/ck/a?!&&p=5522896be309c16550af60863f5cb1369eb409bc606c27d0b6f6c1be97baf100JmltdHM9MTc3MjQwOTYwMA&ptn=3&ver=2&hsh=4&fclid=0d8d58b9-e667-6020-2f99-4e98e7d561b9&psq=psg+polytechnic+college&u=a1aHR0cHM6Ly93d3cucHNncG9seXRlY2guYWMuaW4v" target="_blank" class="link-button glow-button">
+                        <span class="btn-content">
+                            <i class="fas fa-external-link-alt"></i>
+                            Visit Official Website
+                        </span>
+                        <span class="btn-shine"></span>
+                    </a>
+                    <p class="link-hint">Opens in a new tab</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-book"></i>
+                        <h3>Academics</h3>
+                        <p>Explore our diverse academic programs</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Campus Life</h3>
+                        <p>Discover student activities and clubs</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Placements</h3>
+                        <p>Check our placement statistics</p>
+                    </div>
+                    <div class="feature-item contact-toggle">
+                        <i class="fas fa-phone"></i>
+                        <h3>Contact Us</h3>
+                        <p>Get in touch with admissions</p>
+                    </div>
+                </div>
+
+                <!-- contact details sections, hidden until toggled -->
+                <div class="contact-section hidden" id="contacts">
+                    <div class="contact-block">
+                        <h4>GOBI KRISHNA</h4>
+                        <p>99524 24930</p>
+                    </div>
+                    <div class="contact-block">
+                        <h4>MITHUN P</h4>
+                        <p>81220 49375</p>
+                    </div>
+                    <div class="contact-block">
+                        <h4>MUHILAN</h4>
+                        <p>93429 59396</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 PSG Polytechnic. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // toggle contact info
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.querySelector('.contact-toggle');
+            const section = document.getElementById('contacts');
+            if (toggle && section) {
+                toggle.addEventListener('click', () => {
+                    section.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
